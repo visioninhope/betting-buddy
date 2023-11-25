@@ -1,27 +1,21 @@
 <script>
-
-    let date = new Date(); 
-    let currentYear = date.getFullYear();
+	let date = new Date();
+	let currentYear = date.getFullYear();
 </script>
 
-<head>
-    <title>Sports App Test</title>
-</head>
+<svelte:head>
+	<title>Sports App Test</title>
+</svelte:head>
 
-<slot></slot>
+<slot />
 
 <footer>
-    <p>Howdy we did it</p>
-    <p>Copyright {currentYear}</p>
+	<p>Howdy we did it</p>
+	<p>Copyright {currentYear}</p>
 </footer>
 
 <style global>
-   :root {
-    font-family: 'Poppins', sans-serif;
-   }
-
-   button:disabled {
-    color: grey;
-   }
-
+	:root {
+		font-family: 'Poppins', sans-serif;
+	}
 </style>
