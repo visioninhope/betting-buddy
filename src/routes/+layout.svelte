@@ -1,6 +1,4 @@
 <script>
-	let date = new Date();
-	let currentYear = date.getFullYear();
 </script>
 
 <svelte:head>
@@ -9,13 +7,10 @@
 
 <slot />
 
-<footer>
-	<p>Howdy we did it</p>
-	<p>Copyright {currentYear}</p>
-</footer>
-
 <style global>
 	:root {
 		font-family: 'Poppins', sans-serif;
+		margin: 0;
+		padding: 0;
 	}
 </style>
