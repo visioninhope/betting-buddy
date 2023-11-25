@@ -70,14 +70,14 @@
 
 <style>
 	.filter {
-		background: linear-gradient(to bottom, transparent, black);
+		background: linear-gradient(to bottom, transparent, black 85%);
 		position: absolute;
 		top: 0;
 		left: 0;
 		height: 100%;
 		width: 100%;
 		z-index: -1;
-		backdrop-filter: grayscale(90%) blur(8px);
+		backdrop-filter: sepia(100%) blur(5px);
 	}
 	.bg {
 		position: absolute;
