@@ -1,6 +1,4 @@
-<head>
-	<link rel="icon" href="../static/football.svg" />
-</head>
+<head> </head>
 
 <h1>test title</h1>
 
