@@ -79,7 +79,8 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		height: 100%;
+		bottom: 0;
+		min-height: 100%;
 		width: 100%;
 		z-index: -1;
 		backdrop-filter: grayscale(50%) blur(3px);
@@ -87,7 +88,7 @@
 	}
 	.bg {
 		position: absolute;
-		height: 100%;
+		min-height: 100%;
 		width: 100%;
 		top: 0;
 		left: 0;
@@ -96,7 +97,7 @@
 
 	.img {
 		position: absolute;
-		height: 100%;
+		min-height: 100%;
 		width: 100%;
 		z-index: inherit;
 		object-fit: cover;
@@ -104,7 +105,8 @@
 	}
 
 	.wrapper_page {
-		margin-block: 30vh;
+		margin-top: 30vh;
+		min-width: 90%;
 		padding: 3em;
 		display: flex;
 		flex-direction: column;
@@ -122,7 +124,7 @@
 	}
 
 	.title {
-		font-size: 2rem;
+		font-size: 3rem;
 		line-height: 1em;
 		color: white;
 		text-shadow:

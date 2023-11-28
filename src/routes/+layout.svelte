@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>Sports App Testing</title>
+	<title>Sports App Test</title>
 </svelte:head>
 
 <slot />
@@ -23,7 +23,9 @@
 	}
 
 	footer {
-		bottom: 0;
+		position: absolute;
+		left: 44dvw;
+		bottom: 10px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
