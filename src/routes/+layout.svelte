@@ -23,14 +23,16 @@
 	}
 
 	footer {
-		position: absolute;
-		left: 44dvh;
-		bottom: 10px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		color: white;
+		height: 50px;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		left: 0;
 	}
 
 	footer > a {
