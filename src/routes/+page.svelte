@@ -1,5 +1,6 @@
 <script>
-	import Dropdown from '../components/Dropdown.svelte';
+	import Button from '../components/Button.svelte';
+
 	import { BgSport, BgId } from '../stores';
 	import football1 from '../images/football/football-1.jpg';
 	import football2 from '../images/football/football-2.jpg';
@@ -11,9 +12,11 @@
 	import basketball3 from '../images/basketball/basketball-3.jpg';
 	import basketball4 from '../images/basketball/basketball-4.jpg';
 
+	import defaultBg from '../images/default/default-1.jpg';
+
 	const sports = ['Baseball', 'Basketball', 'Football', 'Hockey'];
 
-	let imageSet = [''];
+	let imageSet = [defaultBg];
 	let footballImages = [football1, football2, football3, football4];
 	let basketballImages = [basketball1, basketball2, basketball3, basketball4];
 
@@ -66,8 +69,7 @@
 				<option value={sport}>{sport}</option>
 			{/each}
 		</select>
-
-		<button id="loginBtn" disabled={isDisabled}><a href="./{selectedSport}">Go!</a></button>
+		<Button id="loginBtn" disabled={isDisabled} target={selectedSport} text="Go!"></Button>
 	</div>
 </div>
 
@@ -101,21 +103,14 @@
 		pointer-events: none;
 	}
 
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
-
-	button:disabled {
-		color: grey;
-	}
-
 	.wrapper_page {
-		min-height: 90dvh;
+		margin-block: 30vh;
+		padding: 3em;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		backdrop-filter: blur(15px);
 	}
 
 	.title,
@@ -126,12 +121,27 @@
 		justify-content: center;
 	}
 
+	.title {
+		font-size: 3rem;
+		line-height: 0.25em;
+		color: white;
+		text-shadow:
+			10px 10px black,
+			-10px -10px black;
+	}
+
+	.subtitle {
+		color: white;
+		text-shadow: 3px 3px black;
+	}
+
 	select,
 	option {
 		font-family: inherit;
+		font-size: 1.25rem;
 		padding: 0.5em 1em;
 		border: 5px solid black;
 		box-shadow: 5px 5px 0px black;
-		margin-right: 0.5em;
+		margin-right: 0.75em;
 	}
 </style>
