@@ -106,7 +106,6 @@
 
 	.wrapper_page {
 		margin-top: 30vh;
-		min-width: 90%;
 		padding: 3em;
 		display: flex;
 		flex-direction: column;
@@ -145,5 +144,16 @@
 		border: 5px solid black;
 		box-shadow: 5px 5px 0px black;
 		margin-right: 0.75em;
+	}
+
+	@media (min-width < 500px) {
+		.title,
+		.subtitle,
+		.wrapper_dropdown {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
 	}
 </style>
