@@ -83,7 +83,7 @@
 		min-height: 100%;
 		width: 100%;
 		z-index: -1;
-		backdrop-filter: grayscale(50%) blur(3px);
+		backdrop-filter: sepia(30%) blur(1px);
 		pointer-events: none;
 	}
 	.bg {
