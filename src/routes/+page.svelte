@@ -1,4 +1,5 @@
 <script>
+	import Dropdown from '../components/Dropdown.svelte';
 	import { BgSport, BgId } from '../stores';
 	import football1 from '../images/football/football-1.jpg';
 	import football2 from '../images/football/football-2.jpg';
@@ -10,6 +11,8 @@
 	import basketball3 from '../images/basketball/basketball-3.jpg';
 	import basketball4 from '../images/basketball/basketball-4.jpg';
 
+	const sports = ['Baseball', 'Basketball', 'Football', 'Hockey'];
+
 	let imageSet = [''];
 	let footballImages = [football1, football2, football3, football4];
 	let basketballImages = [basketball1, basketball2, basketball3, basketball4];
@@ -17,15 +20,14 @@
 	function ImageSetSelect() {
 		let sportChoice = $BgSport;
 
-		if (sportChoice === 'football') {
+		if (sportChoice === 'Football') {
 			imageSet = footballImages;
-		} else if (sportChoice === 'basketball') {
+		} else if (sportChoice === 'Basketball') {
 			imageSet = basketballImages;
 		} else {
 			imageSet = [];
 		}
 	}
-
 	let selectedSport = '';
 	let isDisabled = true;
 
@@ -33,7 +35,6 @@
 		let number = Math.floor(Math.random() * 3);
 		BgId.set(number);
 		BgSport.set(selectedSport);
-		ImageSetSelect();
 	}
 </script>
 
@@ -41,43 +42,46 @@
 	<div class="filter"></div>
 	<img class="img" src={imageSet[$BgId]} alt="random background" />
 </div>
+<div class="wrapper_page">
+	<h1 class="title">Not Gambling</h1>
 
-<h1 class="title">Not Gambling</h1>
+	<h3 class="subtitle">
+		<label for="sportDropdown">Select your sport</label>
+	</h3>
 
-<h3 class="subtitle">
-	<label for="sportDropdown">Select your sport</label>
-</h3>
+	<div class="wrapper_dropdown">
+		<select
+			name="sportDropdown"
+			id="sportDropdown"
+			bind:value={selectedSport}
+			on:change={() => {
+				isDisabled = false;
+				getRandomNumber();
+				ImageSetSelect();
+			}}
+		>
+			<option value="" selected disabled hidden> Choose Here</option>
 
-<div class="wrapper_dropdown">
-	<select
-		name="sportDropdown"
-		id="sportDropdown"
-		bind:value={selectedSport}
-		on:change={() => {
-			isDisabled = false;
-			getRandomNumber();
-		}}
-	>
-		<option value="" selected disabled hidden> Choose Here</option>
-		<option value="basketball">Basketball</option>
-		<option value="football">Football</option>
-		<option value="hockey">Hockey</option>
-		<option value="Soccer">Soccer</option>
-	</select>
+			{#each sports as sport}
+				<option value={sport}>{sport}</option>
+			{/each}
+		</select>
 
-	<button id="loginBtn" disabled={isDisabled}><a href="./{selectedSport}">Go!</a></button>
+		<button id="loginBtn" disabled={isDisabled}><a href="./{selectedSport}">Go!</a></button>
+	</div>
 </div>
 
 <style>
 	.filter {
-		background: linear-gradient(to bottom, transparent, black 85%);
+		background: linear-gradient(to bottom, transparent, rgb(31, 31, 31) 95%);
 		position: absolute;
 		top: 0;
 		left: 0;
 		height: 100%;
 		width: 100%;
 		z-index: -1;
-		backdrop-filter: sepia(100%) blur(5px);
+		backdrop-filter: grayscale(50%) blur(3px);
+		pointer-events: none;
 	}
 	.bg {
 		position: absolute;
@@ -93,6 +97,8 @@
 		height: 100%;
 		width: 100%;
 		z-index: inherit;
+		object-fit: cover;
+		pointer-events: none;
 	}
 
 	a {
@@ -104,11 +110,28 @@
 		color: grey;
 	}
 
+	.wrapper_page {
+		min-height: 90dvh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
 	.title,
 	.subtitle,
 	.wrapper_dropdown {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+
+	select,
+	option {
+		font-family: inherit;
+		padding: 0.5em 1em;
+		border: 5px solid black;
+		box-shadow: 5px 5px 0px black;
+		margin-right: 0.5em;
 	}
 </style>
