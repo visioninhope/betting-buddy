@@ -1,7 +1,5 @@
 import adapter from '@sveltejs/adapter-static';
 
-const dev = process.argv.includes('dev');
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
@@ -11,9 +9,9 @@ const config = {
 		adapter: adapter({
 			strict: false
 		}),
+
 		paths: {
-			base: dev ? '' : process.env.BASE_PATH,
-			relative: false
+			base: '/sports_data_app'
 		}
 	}
 };

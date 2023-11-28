@@ -122,8 +122,8 @@
 	}
 
 	.title {
-		font-size: 3rem;
-		line-height: 0.25em;
+		font-size: 2rem;
+		line-height: 1em;
 		color: white;
 		text-shadow:
 			10px 10px black,
