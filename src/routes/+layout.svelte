@@ -1,4 +1,5 @@
 <script>
+	export const prerender = true;
 	let date = new Date();
 	let currentYear = date.getFullYear();
 </script>
