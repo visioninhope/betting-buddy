@@ -1,11 +1,10 @@
 <script>
-	export const prerender = true;
 	let date = new Date();
 	let currentYear = date.getFullYear();
 </script>
 
 <svelte:head>
-	<title>Sports App Test</title>
+	<title>Sports App Testing</title>
 </svelte:head>
 
 <slot />
